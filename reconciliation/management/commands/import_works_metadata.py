@@ -24,14 +24,13 @@ class Command(BaseCommand):
             contributors = self._create_contributors(row.contributors)
             try:
                 work = self._work_by_iswc(row.iswc)
-                self._update_work(work, row)
             except ObjectDoesNotExist:
                 work = self._work_by_title_and_contributor(row)
                 if not work:
                     work = self._new_work(row)
-                self._update_work(work, row)
             except MultipleObjectsReturned as e:
                 raise CommandError('There are duplicated iswc in DB.') from e
+            self._update_work(work, row)
             work.contributors.add(*contributors)
         self.stdout.write(self.style.SUCCESS('Imported succesfully.'))
 
