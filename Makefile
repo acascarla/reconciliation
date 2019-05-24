@@ -1,3 +1,4 @@
+# DJANGO
 run:
 	docker-compose up
 
@@ -14,3 +15,12 @@ init: migrate createsuperuser
 
 import:
 	docker-compose exec django python manage.py import_works_metadata
+
+# DB
+dropdb:
+	docker-compose run --rm psql dropdb postgres
+createdb:
+	docker-compose run --rm psql createdb postgres
+resetdb: dropdb createdb
+
+# Tools
