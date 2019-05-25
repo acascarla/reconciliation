@@ -1,5 +1,5 @@
 # What is this
-This is a simple test of importing a csv with django command and reconciliate matching records and an APIView to retrieve this info
+This imports a csv with a Django command and reconciliate matching records. Also has an APIView to retrieve record information.
 
 # How to install
 You can start it with docker (with make aliases) or manually, in any case you will need an environment vars file, so first:
@@ -15,13 +15,13 @@ You need docker and docker-compose, then:
 ```
 make run
 ```
-2. Once django is running, apply migrations and create superuser
+2. Once Django is running, apply migrations and create superuser
 ```
 make init
 ```
 
 ## Option 2. Manual
-If you prefer in raw, you need a virtualenv with python 3.6 and a postgres database with a powered user (where you want, local, docker, rds..)
+If you prefer in raw, you need a virtualenv with Python 3 and a Postgres database with a powered user (where you want, local, Docker, RDS..)
 
 1. In virtualenv install requirements
 ```
@@ -41,7 +41,7 @@ python manage.py runserver
 ```
 
 # How to import data
-With a django command
+With a Django command
 ## Option 1: Docker
 ```
 make import
