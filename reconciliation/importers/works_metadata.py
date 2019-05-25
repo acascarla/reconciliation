@@ -2,16 +2,17 @@ import collections
 import csv
 
 
-class WorksMetadata(object):
+class WorkMetadataLine(
+    collections.namedtuple(
+        'WorkMetadataLine', ['title', 'raw_contributors', 'iswc']
+    )
+):
+    @property
+    def contributors(self):
+        return self.raw_contributors.split('|')
 
-    class WorkMetadataLine(
-        collections.namedtuple(
-            'WorkMetadataLine', ['title', 'raw_contributors', 'iswc']
-        )
-    ):
-        @property
-        def contributors(self):
-            return self.raw_contributors.split('|')
+
+class WorksMetadata(object):
 
     DELIMITER = ','
 
@@ -23,5 +24,5 @@ class WorksMetadata(object):
                 data,
                 delimiter=cls.DELIMITER
             )
-            for line in map(cls.WorkMetadataLine._make, reader):
+            for line in map(WorkMetadataLine._make, reader):
                 yield line

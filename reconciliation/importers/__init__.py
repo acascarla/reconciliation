@@ -1,5 +1,6 @@
-from .works_metadata import WorksMetadata
+from .works_metadata import WorksMetadata, WorkMetadataLine
 
 __all__ = [
     'WorksMetadata',
+    'WorkMetadataLine',
 ]
