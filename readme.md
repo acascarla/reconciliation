@@ -25,7 +25,7 @@ If you prefer in raw, you need a virtualenv with python 3.6 and a postgres datab
 
 1. In virtualenv install requirements
 ```
-pip install -r requirements.txt
+pip install -e .
 ```
 2. Apply migrations
 ```
