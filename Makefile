@@ -23,4 +23,6 @@ createdb:
 	docker-compose run --rm psql createdb postgres
 resetdb: dropdb createdb
 
-# Tools
+# TOOLS
+test:
+	docker-compose run --rm django python manage.py test
