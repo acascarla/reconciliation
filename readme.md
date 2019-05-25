@@ -68,3 +68,14 @@ http://0.0.0.0:8000/work/
 3. Now as response we see an error, that's GOOD becouse we have not given an ISWC and the error informs about that. Let's put "Shape of You" ISWC:
 http://0.0.0.0:8000/work/?iswc=T9204649558
 4. Tada! We see all info about this work :)
+
+# Tests
+Alias way:
+```
+make test
+```
+
+Normal way:
+```
+python manage.py test
+```
